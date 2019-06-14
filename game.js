@@ -1,8 +1,15 @@
 var health = 100;
+var hits = 0;
 
-let name;
-let hits = 0;
+var ryu = {
 
+}
+var ken = {
+
+}
+
+
+//attacks
 function punch (){
     health = health - 6;
     console.log(health)
@@ -28,12 +35,14 @@ function shoryu (){
     console.log(health)
     update()
 }
+//value displays
 let healthUpdatePlayerOne = document.querySelector("#health-1")
 let healthUpdatePlayerTwo = document.querySelector("#health-2")
 
-
+//display
 function update (){
    healthUpdatePlayerOne.innerHTML = health;
    healthUpdatePlayerTwo.innerHTML = health;
 }
+//initialize
 update()
