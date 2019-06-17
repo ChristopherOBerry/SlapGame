@@ -39,20 +39,20 @@
             <div class="row">
                 <div class="col-6 text-center">
                     <div class="row">
-                        <div class="btn btn-primary p-2"onclick="punch(ken)">Light Punch</div>
-                        <div class="btn btn-primary p-2"onclick="kick(ken)">Light Kick</div>
-                        <div class="btn btn-primary p-2"onclick="hado(ken)">Hadoken</div>
+                        <div class="btn btn-primary p-2"onclick="pushModifiers(ken,0);punch(ken)">Light Punch</div>
+                        <div class="btn btn-primary p-2"onclick="pushModifiers(ken,0);kick(ken)">Light Kick</div>
+                        <div class="btn btn-primary p-2"onclick="pushModifiers(ken,0);hado(ken)">Hadoken</div>
                     </div>
                     <div class="row">
-                            <div class="btn btn-primary p-2"onclick="punch(ken),pushModifiers(ken, medium)">Medium Punch</div>
-                            <div class="btn btn-primary p-2"onclick="kick(ken)">Medium Kick</div>
-                            <div class="btn btn-primary p-2"onclick="hado(ken)">Medium</div>
+                            <div class="btn btn-primary p-2"onclick="pushModifiers(ken,1);punch(ken)">Medium Punch</div>
+                            <div class="btn btn-primary p-2"onclick="pushModifiers(ken, 2);kick(ken)">Heavy Kick</div>
+                            <div class="btn btn-primary p-2"onclick="pushModifiers(ken, 3);hado(ken)">EX Hadoken</div>
                     </div>
                 </div>
                 <div class="col-6 text-center">
-                    <div class="btn btn-primary p-2"onclick="punch(ryu)">Light Punch</div>
-                    <div class="btn btn-primary p-2"onclick="kick(ryu)">Light Kick</div>
-                    <div class="btn btn-primary p-2"onclick="hado(ryu)">Hadoken</div>
+                    <div class="btn btn-primary p-2"onclick="pushModifiers(ryu,0);punch(ryu)">Light Punch</div>
+                    <div class="btn btn-primary p-2"onclick="pushModifiers(ryu,0);kick(ryu)">Light Kick</div>
+                    <div class="btn btn-primary p-2"onclick="pushModifiers(ryu,0);hado(ryu)">Hadoken</div>
                 </div>
             </div>
         </div>

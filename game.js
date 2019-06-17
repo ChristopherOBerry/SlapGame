@@ -8,10 +8,11 @@ var ryu = {
       kick: 20,
       punch: 10,
       shoryu: 25,
-      hadoken: 25,
+      hadoken: 22,
+      tatsu:30,
       grab: 20,
-      attackModifier:[]
-    }
+    },
+    attackModifier:["None"]
 }
 
 var ken = {
@@ -23,35 +24,73 @@ var ken = {
         hadoken: 20,
         tatsu: 22,
         grab: 20,
-        attackModifier:[]
-    }
+    },
+    attackModifier:["None"]
 }
 
 //attack modifiers
 
+
 var modifiers = {
+    light: {name: 'Light', modifier: 1, description: 'Light Attack'},
     medium: {name: 'Medium', modifier: 3/2, description: 'Medium Attack'},
     heavy: {name: 'Heavy', modifier: 2, description: 'Heavy Attack'},
-    ex: {name: 'EX', modifier: 3, description: 'EX Power Up'}
+    ex: {name: 'EX', modifier: 5/2, description: 'EX Power Up'}
 }
 
+let damageBonus = 1;
+
 function pushModifiers(char, mod){
-    if (mod == medium){
-        mod = modifiers.medium;
+    if (char == ken && mod == 0){
+        mod = modifiers.light.name
+        ryu.attackModifier.push(mod)
+        
+        
     }
-    if (mod == heavy){
-        mod = modifiers.heavy;
+    if (char == ken && mod == 1){
+        mod = modifiers.medium.name
+        ryu.attackModifier.push(mod)
+        damageBonus = modifiers.medium.modifier
+        
+        
     }
-    if(mod == ex){
-        mod = modifiers.ex;
+    if (char == ken && mod == 2){
+        mod = modifiers.heavy.name
+        ryu.attackModifier.push(mod)
+        damageBonus = modifiers.heavy.modifier
+        
     }
-    if (char == ken){
-        mod.push(ken.attackModifier)
-        console.log(ken.attackModifier)
+    if (char == ken && mod == 3){
+        mod = modifiers.ex.name
+        ryu.attackModifier.push(mod)
+        damageBonus = modifiers.ex.modifier
+        
     }
-    else{
-        mod.push(ryu.attackModifier)
-        console.log(toString(ryu.attackModifier))
+    //ryu
+    if (char == ryu && mod == 0){
+        mod = modifiers.light.name
+        ken.attackModifier.push(mod)
+        
+        
+    }
+    if (char == ryu && mod == 1){
+        mod = modifiers.medium.name
+        ken.attackModifier.push(mod)
+        damageBonus = modifiers.medium.modifier
+        
+        
+    }
+    if (char == ryu && mod == 2){
+        mod = modifiers.heavy.name
+        ken.attackModifier.push(mod)
+        damageBonus = modifiers.heavy.modifier
+        
+    }
+    if (char == ryu && mod == 3){
+        mod = modifiers.ex.name
+        ken.attackModifier.push(mod)
+        damageBonus = modifiers.ex.modifier
+        
     }
 }
 
@@ -59,7 +98,7 @@ function pushModifiers(char, mod){
 //attacks functions
 function punch(character){
     if (character == ken){
-        ken.health = ken.health - ryu.attacks.punch;
+        ken.health = ken.health - (ryu.attacks.punch * damageBonus);
     }
     else{
         ryu.health = ryu.health - ken.attacks.punch;
@@ -69,7 +108,7 @@ function punch(character){
 
 function kick (character){
     if (character == ken)
-    ken.health = ken.health - ryu.attacks.kick;
+    ken.health = ken.health - (ryu.attacks.kick * damageBonus);
     else {
         ryu.health = ryu.health - ken.attacks.kick;
     }
@@ -78,7 +117,7 @@ function kick (character){
 
 function hado (character){
     if (character == ken)
-    ken.health = ken.health - ryu.attacks.hadoken;
+    ken.health = ken.health - (ryu.attacks.hadoken * damageBonus);
     else {
         ryu.health = ryu.health - ken.attacks.hadoken;
     }
@@ -118,13 +157,15 @@ function update (){
    modifierPlayerTwo.innerHTML= ken.attackModifier;
     
    if (ryu.health <= 0){
-    healthUpdatePlayerOne.innerHTML = 0;
+    healthUpdatePlayerOne.innerHTML = "KO";
    }
    if (ken.health <= 0){
-    healthUpdatePlayerTwo.innerHTML = 0;
+    healthUpdatePlayerTwo.innerHTML = "KO";
    }
-  
+   
 }
+
 //initialize
 update()
-console.log(ryu.attackModifier[0])
+
+
