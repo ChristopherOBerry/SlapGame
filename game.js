@@ -1,8 +1,14 @@
+//value displays
+let healthUpdatePlayerOne = document.querySelector("#ryu")
+let healthUpdatePlayerTwo = document.querySelector("#ken")
+let modifierPlayerOne = document.querySelector("#ryu-attack")
+let modifierPlayerTwo = document.querySelector("#ken-attack")
 
+let damageBonus = 1;
 
 //characters
 
-var ryu = {
+let ryu = {
     health: 100,
     attacks: {
       kick: 20,
@@ -15,7 +21,7 @@ var ryu = {
     attackModifier:["None"]
 }
 
-var ken = {
+let ken = {
     health: 100,
     attacks: {
         kick: 15,
@@ -31,14 +37,13 @@ var ken = {
 //attack modifiers
 
 
-var modifiers = {
+let modifiers = {
     light: {name: 'Light', modifier: 1, description: 'Light Attack'},
     medium: {name: 'Medium', modifier: 3/2, description: 'Medium Attack'},
     heavy: {name: 'Heavy', modifier: 2, description: 'Heavy Attack'},
     ex: {name: 'EX', modifier: 5/2, description: 'EX Power Up'}
 }
 
-let damageBonus = 1;
 
 function pushModifiers(char, mod){
     if (char == ken && mod == 0){
@@ -143,11 +148,6 @@ function shoryu (character){
     update()
 }
 
-//value displays
-let healthUpdatePlayerOne = document.querySelector("#ryu")
-let healthUpdatePlayerTwo = document.querySelector("#ken")
-let modifierPlayerOne = document.querySelector("#ryu-attack")
-let modifierPlayerTwo = document.querySelector("#ken-attack")
 
 //display
 function update (){
