@@ -15,9 +15,9 @@
                 <div class="col-12 pt-4"><h1 class="text-center text-light border border-primary bg-secondary rounded p-2">SlapGame: The World Warrior</h1></div>
             </div>
             <div class="row">
-                <div class="col-5 bg-warning"><span>HEALTH:<span id="health-1">--</span></span></div>
+                <div class="col-5 bg-warning"><span>HEALTH:<span id="ryu">--</span></span><span>&nbsp; Modifier:<span id="ryu-attack">--</span></div>
                 <div class="col-2 d-flex justify-content-center text-center text-warning"><h4>KO</h4></div>
-                <div class="col-5 d-flex justify-content-end bg-warning"><span>HEALTH:<span id="health-2">--</span></span></div>
+                <div class="col-5 d-flex justify-content-end bg-warning"><span>HEALTH:<span id="ken">--</span></span><span>&nbsp; Modifier:<span id="ken-attack">--</span></div>
                 
             </div>
             <div class="row">
@@ -38,14 +38,21 @@
             </div>
             <div class="row">
                 <div class="col-6 text-center">
-                    <div class="btn btn-primary p-2"onclick="punch()">Light Punch</div>
-                    <div class="btn btn-primary p-2"onclick="kick()">Light Kick</div>
-                    <div class="btn btn-primary p-2"onclick="hado()">Hadoken</div>
+                    <div class="row">
+                        <div class="btn btn-primary p-2"onclick="punch(ken)">Light Punch</div>
+                        <div class="btn btn-primary p-2"onclick="kick(ken)">Light Kick</div>
+                        <div class="btn btn-primary p-2"onclick="hado(ken)">Hadoken</div>
+                    </div>
+                    <div class="row">
+                            <div class="btn btn-primary p-2"onclick="punch(ken),pushModifiers(ken, medium)">Medium Punch</div>
+                            <div class="btn btn-primary p-2"onclick="kick(ken)">Medium Kick</div>
+                            <div class="btn btn-primary p-2"onclick="hado(ken)">Medium</div>
+                    </div>
                 </div>
                 <div class="col-6 text-center">
-                    <div class="btn btn-primary p-2"onclick="punch()">Light Punch</div>
-                    <div class="btn btn-primary p-2"onclick="kick()">Light Kick</div>
-                    <div class="btn btn-primary p-2"onclick="hado()">Hadoken</div>
+                    <div class="btn btn-primary p-2"onclick="punch(ryu)">Light Punch</div>
+                    <div class="btn btn-primary p-2"onclick="kick(ryu)">Light Kick</div>
+                    <div class="btn btn-primary p-2"onclick="hado(ryu)">Hadoken</div>
                 </div>
             </div>
         </div>
